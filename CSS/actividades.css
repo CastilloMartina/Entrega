@@ -1,0 +1,457 @@
+/* Reset general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Paleta */
+:root {
+  --pale-cashmere: #E8DFD5;
+  --cinnamon-ice: #DBBBA7;
+  --burning-orange: #FF7124;
+  --blue-estate: #3B4883;
+  --wahoo: #272D4E;
+  --noble-black: #202124;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--pale-cashmere);
+  color: var(--noble-black);
+}
+
+
+/* Header y navbar */
+.header {
+  width: 100%;
+  background-color: #fc3f00 ;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.imagen img {
+  height: 90px;
+}
+
+/* Icono hamburguesa */
+.label-hamburguesa {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Ocultar checkbox */
+.menu-hamburguesa {
+  display: none;
+}
+
+/* Estilo de los links del menú */
+.ul-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.il-links {
+  position: relative;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.links:hover {
+  background-color:#272D4E;
+}
+
+/* Submenú */
+.iv {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  background-color:#272D4E;
+  list-style: none;
+  padding: 0;
+}
+
+.il-links:hover .iv {
+  display: block;
+}
+
+.iv li a {
+  padding: 10px;
+  display: block;
+  color: white;
+  text-align: left;
+}
+
+.iv li a:hover {
+  background-color:#fc3f00 ;
+}
+
+/* --- Responsive revisar  --- */
+@media (max-width: 768px) {
+  .label-hamburguesa {
+    display: block;
+  }
+
+  .ul-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color:#fc3f00;
+    margin-top: 10px;
+  }
+
+  .ul-links .il-links {
+    border-top: 1px solid #222;
+  }
+
+  /* Mostrar menú cuando el checkbox está activado */
+  .menu-hamburguesa:checked ~ .ul-links {
+    display: flex;
+  }
+
+  .iv {
+    position: static;
+  }
+}
+
+
+/* Sección Argentina */
+.cosas-argentina {
+  padding: 200px 100px;
+}
+
+.contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.columna-izquierda {
+  flex: 1 1 400px;
+}
+
+.imagen-borde {
+  background-color: var(--cinnamon-ice);
+  padding: 1px;
+  display: inline-block;
+}
+
+.imagen-borde img {
+  display: block;
+  width: 100%;
+  max-width: 1000px ;
+  height: auto;
+}
+
+.columna-derecha {
+  flex: 1 1 400px;
+}
+
+.columna-derecha h2 {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: var(--blue-estate);
+}
+
+.columna-derecha p {
+  font-size: 18px;
+  color: var(--noble-black);
+  line-height: 1.6;
+}
+
+.columna-derecha a {
+  color: var(--blue-estate);
+  text-decoration: underline;
+}
+
+.experiencias {
+  margin-top: 50px;
+}
+
+.experiencias .texto h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: var(--blue-estate);
+}
+
+.experiencias .texto p {
+  font-size: 16px;
+  color: var(--noble-black);
+}
+
+.botones {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.botones button {
+  padding: 10px 16px;
+  border: 1px solid var(--noble-black);
+  border-radius: 999px;
+  background: var(--pale-cashmere);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.botones .ver-todo {
+  margin-left: auto;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .botones {
+    justify-content: center;
+  }
+
+  .botones .ver-todo {
+    margin-left: 0;
+  }
+}
+
+/* Populares */
+.atracciones {
+  padding: 30px 10px ;
+}
+
+.encabezado {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40 px;
+}
+
+.encabezado h2 {
+  font-size: 24px;
+  font-weight: bold;
+  flex: 1 1 60%;
+  color: var(--blue-estate);
+}
+
+.encabezado p {
+  flex: 1 1 100%;
+  font-size: 14px;
+  color: var(--noble-black);
+  margin-top: 8px;
+}
+
+.encabezado a {
+  color: var(--blue-estate);
+  text-decoration: underline;
+}
+
+.btn-ver-todo {
+  padding: 8px 16px;
+  border: 1px solid var(--noble-black);
+  border-radius: 999px;
+  background: var(--pale-cashmere);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.grilla-atracciones {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: var(--cinnamon-ice);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.card .contenido {
+  padding: 16px;
+}
+
+.numero {
+  font-weight: bold;
+  font-size: 18px;
+  color: var(--burning-orange);
+}
+
+.card h3 {
+  margin: 4px 0;
+  font-size: 18px;
+  color: var(--blue-estate);
+}
+
+.categoria {
+  color: var(--noble-black);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.resenas {
+  font-size: 14px;
+  color: var(--noble-black);
+  margin-bottom: 8px;
+}
+
+.descripcion {
+  font-size: 14px;
+  color: var(--noble-black);
+  margin-bottom: 12px;
+}
+
+.card button {
+  background: var(--pale-cashmere);
+  border: none;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Pie de pagina */
+.pie-pagina {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+    background-color: #0a140a;
+    color: white;
+}
+
+.pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* no se usa punto sino coma */
+    grid-gap: 50px;
+    padding: 45px 20px; /* Añadido padding lateral para mobile */
+}
+
+.pie-pagina .grupo-1 .box {
+    padding: 15px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+    filter: brightness(0) invert(1); /* Para convertir logo a blanco si es necesario */
+}
+
+.pie-pagina .grupo-1 .box h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #fff; /*  mejor jerarquía */
+    padding-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .box p {
+    color: #efefef;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Redes sociales */
+.pie-pagina .grupo-1 .red-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease; /* Corregida duración transición */
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+    background-color: #2d2d2d;
+    transform: translateY(-3px);
+}
+
+/* Grupo copyright */
+.pie-pagina .grupo-2 {
+    background-color: #070f07;
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+}
+
+.pie-pagina .grupo-2 small {
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pie-pagina .grupo-1 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+}
+    .pie-pagina .grupo-1 .box {
+        text-align: center;
+    }
+    
+    .pie-pagina .grupo-1 .box figure img {
+        width: 200px;
+    }
+    
+    .pie-pagina .grupo-1 .red-social {
+        justify-content: center;
+    }
+

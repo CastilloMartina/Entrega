@@ -1,0 +1,469 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header y navbar */
+.header {
+  width: 100%;
+  background-color: #fc3f00 ;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.imagen img {
+  height: 90px;
+}
+
+/* Icono hamburguesa */
+.label-hamburguesa {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+/* Ocultar checkbox */
+.menu-hamburguesa {
+  display: none;
+}
+
+/* Estilo de los links del menú */
+.ul-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.il-links {
+  position: relative;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.links:hover {
+  background-color:#272D4E;
+}
+
+/* Submenú */
+.iv {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  background-color:#272D4E;
+  list-style: none;
+  padding: 0;
+}
+
+.il-links:hover .iv {
+  display: block;
+}
+
+.iv li a {
+  padding: 10px;
+  display: block;
+  color: white;
+  text-align: left;
+}
+
+.iv li a:hover {
+  background-color:#fc3f00 ;
+}
+
+/* --- Responsive revisar  --- */
+@media (max-width: 768px) {
+  .label-hamburguesa {
+    display: block;
+  }
+
+  .ul-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color:#fc3f00;
+    margin-top: 10px;
+  }
+
+  .ul-links .il-links {
+    border-top: 1px solid #222;
+  }
+
+  /* Mostrar menú cuando el checkbox está activado */
+  .menu-hamburguesa:checked ~ .ul-links {
+    display: flex;
+  }
+
+  .iv {
+    position: static;
+  }
+}
+
+
+
+/* video */
+.video{
+    padding: auto;
+    width: max-content;
+}
+
+
+/* Pie de pagina */
+.pie-pagina {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+    background-color: #0a140a;
+    color: white;
+}
+
+.pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* no se usa punto sino coma */
+    grid-gap: 50px;
+    padding: 45px 20px; /* Añadido padding lateral para mobile */
+}
+
+.pie-pagina .grupo-1 .box {
+    padding: 15px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+    filter: brightness(0) invert(1); /* Para convertir logo a blanco si es necesario */
+}
+
+.pie-pagina .grupo-1 .box h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #fff; /*  mejor jerarquía */
+    padding-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .box p {
+    color: #efefef;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Redes sociales */
+.pie-pagina .grupo-1 .red-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease; /* Corregida duración transición */
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+    background-color: #2d2d2d;
+    transform: translateY(-3px);
+}
+
+/* Grupo copyright */
+.pie-pagina .grupo-2 {
+    background-color: #070f07;
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+}
+
+.pie-pagina .grupo-2 small {
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pie-pagina .grupo-1 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+}
+    .pie-pagina .grupo-1 .box {
+        text-align: center;
+    }
+    
+    .pie-pagina .grupo-1 .box figure img {
+        width: 200px;
+    }
+    
+    .pie-pagina .grupo-1 .red-social {
+        justify-content: center;
+    }
+
+/* carrusel imagenes*/
+    carrusel 
+ {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+     color: white;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-text {
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      right: 10%;
+      color: white;
+      
+    }
+
+    .slide-text h2, .slide-text p {
+      margin-bottom: 1rem;
+    }
+
+    .slide-text h2[contenteditable], .slide-text p[contenteditable] {
+      padding: 0.2rem;
+     
+    }
+
+    .controls {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 1rem;
+      z-index: 2;
+    }
+
+    .controls button {
+      background-color: rgba(0,0,0,0.6);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s;
+    }
+
+    .controls button:hover {
+      background-color: rgba(255,255,255,0.2);
+    }
+
+    .indicators {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 3;
+    }
+
+    .indicator {
+      width: 12px;
+      height: 12px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .indicator.active {
+      background-color: #fff;
+    }
+
+/*scc de viajeros*/ 
+.recomendaciones {
+  padding: 60px 20px;
+  background-color: #fff;
+  font-family: 'Arial', sans-serif;
+  position: relative;
+}
+
+.recomendaciones h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #0c1d3c;
+  border-left: 4px solid red;
+  padding-left: 12px;
+}
+
+.recomendaciones h2 span {
+  font-weight: bold;
+  color: #0c1d3c;
+  display: block;
+  font-size: 36px;
+}
+
+/* Contenedor del carrusel con flechas */
+.carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+}
+.cards-container::-webkit-scrollbar {
+  display: none;
+}
+
+.card {
+  flex: 0 0 300px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-left: 20px solid #0c1d3c;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #0c1d3c;
+  line-height: 1.6;
+}
+
+.card .autor {
+  margin-top: auto;
+  font-weight: bold;
+  color: #f24578;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.card .autor img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Flechas de navegación */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.nav.left {
+  left: 0;
+}
+
+.nav.right {
+  right: 0;
+}
+
+.nav:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+
+/* coasas que me faltan 
+agrgar un carrucel arreglar las posiciones del menu 
+acomodar el video que se pone delante del menu 
+el boton con los inconos 
+incular las paginas 
+subir el boceto 
+cambiar los colores 
+no aparecen los paises en ek sub nivel*/

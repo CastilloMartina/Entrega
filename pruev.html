@@ -1,0 +1,215 @@
+<!-- menu alerta -->
+ <script>
+  //  Pedimos el nombre al usuario
+  const nombre = prompt("¡Hola! ¿Cómo te llamás?");
+  
+  //  Mostramos saludo con alert
+  if (nombre) {
+    alert(`¡Bienvenid@ a JetMood, ${nombre}!`);
+    console.log(`Usuario ingresó: ${nombre}`);
+  } else {
+    alert("¡Bienvenid@ a JetMood!");
+    console.log("Usuario no ingresó su nombre.");
+  }
+
+  //  Simulamos interés en descuentos
+  const interesDescuentos = prompt("¿Te interesan nuestros descuentos? (sí/no)");
+  
+  if (interesDescuentos?.toLowerCase() === "sí") {
+    alert("¡Perfecto! Próximamente te enviaremos novedades exclusivas ✈️");
+    console.log(`${nombre || "Usuario"} está interesad@ en descuentos.`);
+  } else {
+    console.log(`${nombre || "Usuario"} no está interesad@ en descuentos.`);
+  }
+</script>
+
+<!-- carrusel opinion -->
+ <script>
+  const carousel = document.getElementById('carousel');
+  const next = document.getElementById('next');
+  const prev = document.getElementById('prev');
+
+  const cardWidth = 320; // Ancho estimado de una tarjeta + gap
+
+  next.addEventListener('click', () => {
+    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  });
+
+  prev.addEventListener('click', () => {
+    carousel.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+  });
+
+  // AUTOPLAY
+  let autoScroll = setInterval(() => {
+    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+  }, 5000); // cada 5 segundos
+
+  // Reinicia autoplay si el usuario hace scroll manual
+  carousel.addEventListener('scroll', () => {
+    clearInterval(autoScroll);
+    autoScroll = setInterval(() => {
+      carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+    }, 5000);
+  });
+</script>
+
+<!--carrusel de imagenes -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const indicatorsContainer = document.querySelector('.indicators');
+  let currentSlide = 0;
+  let interval;
+
+  // Crear indicadores
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.classList.add('indicator');
+    if (i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      currentSlide = i;
+      showSlide(currentSlide);
+      resetInterval();
+    });
+    indicatorsContainer.appendChild(dot);
+  });
+
+  const indicators = document.querySelectorAll('.indicator');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      indicators[i].classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+    resetInterval();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+    resetInterval();
+  }
+
+  function startAutoSlide() {
+    interval = setInterval(nextSlide, 5000);
+  }
+
+  function resetInterval() {
+    clearInterval(interval);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
+</script> 
+
+
+<!-- lugares -->
+ <!-- buscar los paquetes -->
+  <script>
+  const paquetes = [
+    {
+      destino: "Bariloche",
+      fecha: "2025-07-15",
+      duracion: 5,
+      descripcion: "Viaje inolvidable a la Patagonia con excursiones al cerro Catedral."
+    },
+    {
+      destino: "Mendoza",
+      fecha: "2025-08-10",
+      duracion: 3,
+      descripcion: "Disfrutá de bodegas y paisajes únicos de montaña."
+    },
+    {
+      destino: "Salta",
+      fecha: "2025-07-20",
+      duracion: 7,
+      descripcion: "Cultura, paisajes del norte y gastronomía regional."
+    },
+    {
+      destino: "El Calafate",
+      fecha: "2025-07-18",
+      duracion: 10,
+      descripcion: "Trekking en el glaciar Perito Moreno. ¡Aventura garantizada!"
+    }
+  ];
+
+  document.getElementById("form-buscador").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const destinoInput = document.getElementById("destino").value.toLowerCase();
+    const fechaInput = document.getElementById("fecha").value;
+    const duracionInput = parseInt(document.getElementById("duracion").value);
+
+    const resultados = paquetes.filter(paquete => {
+      const coincideDestino = paquete.destino.toLowerCase().includes(destinoInput);
+      const coincideFecha = !fechaInput || paquete.fecha === fechaInput;
+      const coincideDuracion = isNaN(duracionInput) || paquete.duracion >= duracionInput;
+
+      return coincideDestino && coincideFecha && coincideDuracion;
+    });
+
+    mostrarResultados(resultados);
+  });
+
+  function mostrarResultados(lista) {
+    const contenedor = document.getElementById("resultados");
+    contenedor.innerHTML = "";
+
+    if (lista.length === 0) {
+      contenedor.innerHTML = "<p>No se encontraron paquetes para tu búsqueda.</p>";
+      return;
+    }
+
+    lista.forEach(paquete => {
+      const div = document.createElement("div");
+      div.classList.add("paquete");
+      div.innerHTML = `
+        <h3>${paquete.destino}</h3>
+        <p><strong>Fecha:</strong> ${paquete.fecha}</p>
+        <p><strong>Duración:</strong> ${paquete.duracion} días</p>
+        <p>${paquete.descripcion}</p>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+</script> 
+
+<!--formulario de turnos -->
+
+
+    <script>
+      
+        document.querySelector("form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const destino = document.getElementById("destino").value;
+            const pasajeros = document.getElementById("pasajeros").value;
+            const estacion = document.querySelector('input[name="estacion"]:checked')?.value;
+
+            console.log("Reserva:");
+            console.log("Nombre:", nombre);
+            console.log("Destino:", destino);
+            console.log("Pasajeros:", pasajeros);
+            console.log("Estación preferida:", estacion);
+
+            const confirmacion = prompt(`¿Confirmás tu destino a "${destino}"? (sí/no)`);
+
+            if (confirmacion?.toLowerCase() === "sí") {
+                alert("¡Reserva confirmada! Gracias por confiar en JetMood ✈️");
+                console.log("Destino confirmado:", destino);
+            } else {
+                alert("Reserva cancelada. Podés modificar el destino.");
+                console.log("Reserva no confirmada");
+            }
+        });
+    </script>
+
+
+
+       
+

@@ -1,0 +1,374 @@
+/* Reset general */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Colores definidos desde la paleta  */
+:root {
+  --pale-cashmere: #E8DFD5;
+  --cinnamon-ice: #DBBBA7;
+  --burning-orange: #FF7124;
+  --blue-estate: #3B4883;
+  --wahoo: #272D4E;
+  --noble-black: #202124;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--pale-cashmere);
+  color: var(--noble-black);
+}
+
+/* Header y navbar */
+.header {
+  width: 100%;
+  background-color: var(--burning-orange);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.imagen img {
+  height: 90px;
+}
+
+.label-hamburguesa {
+  display: none;
+  cursor: pointer;
+  color: white;
+}
+
+.menu-hamburguesa {
+  display: none;
+}
+
+.ul-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.il-links {
+  position: relative;
+}
+
+.links {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.links:hover {
+  background-color: var(--wahoo);
+}
+
+/* Submenú */
+.iv {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  background-color: var(--wahoo);
+  list-style: none;
+  padding: 0;
+}
+
+.il-links:hover .iv {
+  display: block;
+}
+
+.iv li a {
+  padding: 10px;
+  display: block;
+  color: white;
+  text-align: left;
+}
+
+.iv li a:hover {
+  background-color: var(--burning-orange);
+}
+
+@media (max-width: 768px) {
+  .label-hamburguesa {
+    display: block;
+  }
+
+  .ul-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--burning-orange);
+    margin-top: 10px;
+  }
+
+  .ul-links .il-links {
+    border-top: 1px solid var(--noble-black);
+  }
+
+  .menu-hamburguesa:checked ~ .ul-links {
+    display: flex;
+  }
+
+  .iv {
+    position: static;
+  }
+}
+
+/* Buscador */
+.buscador-viajes {
+  padding: 2rem;
+  background-color: var(--cinnamon-ice);
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+.buscador-viajes h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: var(--blue-estate);
+}
+
+.form-buscador {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.campo {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--noble-black);
+}
+
+.campo input,
+.campo select {
+  padding: 0.5rem;
+  border: 1px solid var(--wahoo);
+  border-radius: 6px;
+}
+
+.btn-buscar {
+  padding: 0.8rem 1.5rem;
+  background-color: var(--burning-orange);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+}
+
+.btn-buscar:hover {
+  background-color: var(--wahoo);
+}
+
+@media (max-width: 600px) {
+  .form-buscador {
+    flex-direction: column;
+  }
+
+  .btn-buscar {
+    width: 100%;
+  }
+}
+
+/* Resultados */
+.resultados {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.paquete {
+  background: white;
+  padding: 1rem;
+  border: 1px solid var(--wahoo);
+  border-radius: 8px;
+}
+
+/* Populares */
+.populares {
+  padding: 3rem 1.5rem;
+  background-color: var(--pale-cashmere);
+}
+
+.populares h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--blue-estate);
+}
+
+.paquetes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.paquete-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.paquete-card:hover {
+  transform: scale(1.02);
+}
+
+.paquete-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.paquete-info {
+  padding: 1rem;
+}
+
+.paquete-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--noble-black);
+}
+
+.paquete-info p {
+  font-size: 0.95rem;
+  color: var(--wahoo);
+}
+
+
+/* Pie de pagina */
+.pie-pagina {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+    background-color: #0a140a;
+    color: white;
+}
+
+.pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* no se usa punto sino coma */
+    grid-gap: 50px;
+    padding: 45px 20px; /* Añadido padding lateral para mobile */
+}
+
+.pie-pagina .grupo-1 .box {
+    padding: 15px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+    filter: brightness(0) invert(1); /* Para convertir logo a blanco si es necesario */
+}
+
+.pie-pagina .grupo-1 .box h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-bottom: 2px solid #fff; /*  mejor jerarquía */
+    padding-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .box p {
+    color: #efefef;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Redes sociales */
+.pie-pagina .grupo-1 .red-social {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background-color: #1a1a1a;
+    border-radius: 50%;
+    text-align: center;
+    transition: all 0.3s ease; /* Corregida duración transición */
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+    background-color: #2d2d2d;
+    transform: translateY(-3px);
+}
+
+/* Grupo copyright */
+.pie-pagina .grupo-2 {
+    background-color: #070f07;
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+}
+
+.pie-pagina .grupo-2 small {
+    font-size: 15px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pie-pagina .grupo-1 {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+}
+    .pie-pagina .grupo-1 .box {
+        text-align: center;
+    }
+    
+    .pie-pagina .grupo-1 .box figure img {
+        width: 200px;
+    }
+    
+    .pie-pagina .grupo-1 .red-social {
+        justify-content: center;
+    }
