@@ -31,16 +31,24 @@ body {
   color: var(--white);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
 
+/* Header y navbar */
 .header {
   width: 100%;
-  background-color: var(--burning-orange);
+  background-color: #fc3f00 ;
   padding: 10px 20px;
   position: fixed;
   top: 0;
   z-index: 1000;
-  
 }
 
 .navbar {
@@ -50,20 +58,24 @@ body {
   flex-wrap: wrap;
 }
 
+/* Logo */
 .imagen img {
   height: 90px;
 }
 
+/* Icono hamburguesa */
 .label-hamburguesa {
   display: none;
   cursor: pointer;
-  color: var(--white);
+  color: white;
 }
 
+/* Ocultar checkbox */
 .menu-hamburguesa {
   display: none;
 }
 
+/* Estilo de los links del menú */
 .ul-links {
   list-style: none;
   display: flex;
@@ -76,15 +88,71 @@ body {
 
 .links {
   text-decoration: none;
-  color: var(--white);
+  color: white;
   padding: 10px;
   display: block;
   transition: background-color 0.3s;
 }
 
 .links:hover {
-  background-color: var(--wahoo);
+  background-color:#272D4E;
 }
+
+/* Submenú */
+.iv {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  background-color:#272D4E;
+  list-style: none;
+  padding: 0;
+}
+
+.il-links:hover .iv {
+  display: block;
+}
+
+.iv li a {
+  padding: 10px;
+  display: block;
+  color: white;
+  text-align: left;
+}
+
+.iv li a:hover {
+  background-color:#fc3f00 ;
+}
+
+/* --- Responsive revisar  --- */
+@media (max-width: 768px) {
+  .label-hamburguesa {
+    display: block;
+  }
+
+  .ul-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color:#fc3f00;
+    margin-top: 10px;
+  }
+
+  .ul-links .il-links {
+    border-top: 1px solid #222;
+  }
+
+  /* Mostrar menú cuando el checkbox está activado */
+  .menu-hamburguesa:checked ~ .ul-links {
+    display: flex;
+  }
+
+  .iv {
+    position: static;
+  }
+}
+
+
 
 /* formulario */
 
